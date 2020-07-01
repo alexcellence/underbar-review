@@ -401,7 +401,7 @@
           { name: 'curly', age: 50 }
         ];
 
-        expect(_.pluck(people, 'name')).to.equal(['moe', 'curly']);
+        expect(_.pluck(people, 'name')).to.eql(['moe', 'curly']);
       });
 
       it('should not modify the original array', function() {
@@ -412,7 +412,7 @@
 
         _.pluck(people, 'name');
 
-        expect(people).to.equal([{ name: 'moe', age: 30 }, { name: 'curly', age: 50 }]);
+        expect(people).to.eql([{ name: 'moe', age: 30 }, { name: 'curly', age: 50 }]);
       });
     });
 
@@ -471,6 +471,7 @@
         _.reduce([1, 2, 3, 4], function(memo, item) {
           // FILL_ME_IN
           // Add a line here that makes this test pass
+          orderTraversed.push(item);
           // for a working implementation of reduce
           return memo;
         }, 10);
@@ -501,7 +502,7 @@
         expect(result).to.equal(4);
       });
 
-      it('Fill me in with a description of the behavior this test is checking for', function() {
+      it('should set memo to be memo if provided', function() {
         var result = _.reduce([1, 2, 3], function(memo, item) {
           return memo * item;
         }, 0);
